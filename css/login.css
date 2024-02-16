@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+}
+#contact {
+    display: block;
+}
+fieldset {
+    margin: 3em;
+    padding: 2em;
+}
+input, textarea {
+    display: block;
+    margin-bottom: 1em;
+    width: 100%;
+}
+textarea {
+    height: 10em;
+}
+.hint {
+    display: none;
+    color: red;
+}
+
+#loading {
+    display: none;
+    text-align: center;
+    padding-top: 9em;
+}
+#success {
+    display: none;
+    text-align: center;
+    padding-top: 10em;
+}
+#error {
+    display: none;
+    text-align: center;
+    padding-top: 10em;
+}
+#error h2 {
+    color: #ff0000;
+}
