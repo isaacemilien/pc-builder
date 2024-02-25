@@ -1,0 +1,15 @@
+NOTES: 
+
+Footer:
+Logo in the middle, link to the pages as simple just words that are underlined on the right,
+Copyright and company name on the left
+
+Help page:
+Common questions (6 questions)
+Drop down lists for them to display their information
+
+Build page:
+Table with all the parts in left column, then an add next to it that takes you to that parts page where you select from the database which item you would like and once you press add it takes you back to the build page where it has become part of the table and the total price is at the top of the page following you. There is a remove button furtherest right of the table that allows you to remove the part from the table. 
+
+Prebuilt page:
+The bootstrap page. 9 builds that have all the specs of them all, 3 different versions (gaming, streaming, work station) 3 different prices for each of them (cheap, medium, expensive)
