@@ -1,0 +1,65 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; /* You can adjust the width as needed */
+}
+
+th, td {
+    padding: 8px;
+    border: 0px solid #dddddd;
+    color: #000000;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style the button */
+button {
+    background-color: #f2f2f2; /* Button background color */
+    color: #000000; /* Button text color */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for smooth color change */
+}
+
+/* Override hover effects */
+button:hover {
+    background-color: #f2f2f2; /* Keep the background color the same as default */
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Adjust column widths */
+th:nth-child(1),
+td:nth-child(1) {
+    width: 10%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 10%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 70%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 10%;
+    text-align: center;
+}
