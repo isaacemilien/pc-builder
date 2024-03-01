@@ -1,0 +1,14 @@
+{
+  "name": "pc-builder",
+  "version": "1.0.0",
+  "description": "Website with a login so that we can save users name and contact info\r Database with all the different pc parts available with their price and separated by parts\r Chatbot with basic help available",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
