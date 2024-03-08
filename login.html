@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Desktop Designer</title>
+  <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg">
+  <style>
+    .icon {
+      width: 75px;
+      height: auto;
+      margin-right: 10px;
+      /* Adjust spacing between icon and text */
+    }
+
+    .nav-item {
+      display: flex;
+      /* Make items inside the list item flex items */
+      align-items: center;
+      /* Align items vertically */
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="py-2 bg-body-tertiary border-bottom">
+      <div class="container d-flex flex-wrap">
+        <!-- Unneeded ul -->
+        <ul class="nav me-auto">
+          <li class="nav-item">
+            <a href="index.html"><img src="images/pcIcon.jpg" alt="PC Icon" class="icon"></a>
+            <a href="index.html" class="fs-4 nav-link link-body-emphasis px-2 active" aria-current="page">Desktop
+              Designer</a>
+          </li>
+        </ul>
+        <ul class="nav align-items-center">
+          <li class="nav-item"><a href="login.html" class="nav-link link-body-emphasis px-2"><i
+                class="fa fa-fw fa-user"></i>Login</a></li>
+          <li class="nav-item"><a href="signup.html" class="nav-link link-body-emphasis px-2">Sign up</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="py-2 bg-body-tertiary border-bottom">
+      <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+          <li class="nav-item"><a href="buid.html" class="nav-link link-body-emphasis px-2 active"
+              aria-current="page">Build</a></li>
+          <li class="nav-item"><a href="prebuilt.html" class="nav-link link-body-emphasis px-2 active"
+              aria-current="page">Prebuilt</a></li>
+          <li class="nav-item"><a href="help.html" class="nav-link link-body-emphasis px-2 active"
+              aria-current="page">Help</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="px-3 py-3 my-3 text-center">
+      <h1 class="display-5 fw-bold text-body-emphasis">Log in </h1>
+    </div>
+
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="login.php" method="post">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <hr class="my-4">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+      </form>
+    </div>
+
+
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Desktop Designer</p>
+
+        <!-- Middle section with the clickable image -->
+        <a href="index.html"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <!-- Inserting the PC icon here -->
+          <img src="images/pcIcon.jpg" alt="PC Icon" class="icon">
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="buid.html" class="nav-link px-2 text-body-secondary">Build</a></li>
+          <li class="nav-item"><a href="prebuilt.html" class="nav-link px-2 text-body-secondary">Prebuilt</a></li>
+          <li class="nav-item"><a href="help.html" class="nav-link px-2 text-body-secondary">Help</a></li>
+        </ul>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>
