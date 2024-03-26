@@ -7,7 +7,43 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Desktop Designer</title>
+  <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg">
+  <style>
+    .icon {
+      width: 75px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .password-toggle-icon {
+      position: absolute;
+      top: 65%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .password-toggle-icon i {
+      font-size: 18px;
+      line-height: 1;
+      color: #333;
+      transition: color 0.3s ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    .password-toggle-icon i:hover {
+      color: #000;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,8 +52,11 @@
       <div class="container d-flex flex-wrap">
         <!-- Unneeded ul -->
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="index.html" class="fs-4 nav-link link-body-emphasis px-2 active"
-              aria-current="page">Desktop Designer</a></li>
+          <li class="nav-item">
+            <a href="index.html"><img src="images/pcIcon.jpg" alt="PC Icon" class="icon"></a>
+            <a href="index.html" class="fs-4 nav-link link-body-emphasis px-2 active" aria-current="page">Desktop
+              Designer</a>
+          </li>
         </ul>
         <ul class="nav align-items-center">
           <li class="nav-item"><a href="login.html" class="nav-link link-body-emphasis px-2"><i
@@ -43,18 +82,19 @@
       <h1 class="display-5 fw-bold text-body-emphasis">Log in </h1>
     </div>
 
-    <div class="col-md-10 mx-auto pb-5 mb-5 col-lg-5">
-      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="php/login.php" method="post">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
           <label for="floatingPassword">Password</label>
+          <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
         </div>
         <hr class="my-4">
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
       </form>
     </div>
 
@@ -63,11 +103,11 @@
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Desktop Designer</p>
 
-        <a href="/"
+        <!-- Middle section with the clickable image -->
+        <a href="index.html"
           class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap" />
-          </svg>
+          <!-- Inserting the PC icon here -->
+          <img src="images/pcIcon.jpg" alt="PC Icon" class="icon">
         </a>
 
         <ul class="nav col-md-4 justify-content-end">
@@ -79,6 +119,23 @@
       </footer>
     </div>
   </main>
+
+  <script>
+  const passwordField = document.getElementById("floatingPassword");
+  const togglePassword = document.querySelector(".password-toggle-icon i");
+
+  togglePassword.addEventListener("click", function () {
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      togglePassword.classList.remove("fa-eye");
+      togglePassword.classList.add("fa-eye-slash");
+    } else {
+      passwordField.type = "password";
+      togglePassword.classList.remove("fa-eye-slash");
+      togglePassword.classList.add("fa-eye");
+    }
+  });
+  </script>
 </body>
 
 </html>
