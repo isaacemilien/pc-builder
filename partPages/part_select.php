@@ -354,31 +354,44 @@
 
         <section>
             <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Pick the CPU</h1>
-                    <p class="lead text-body-secondary">Select the part you wish to use then click confirm</p>
-                </div>
-            </div>
-        </section>
-        <!-- json time -->
-        <div class="table-section">
-            <div id="navbar">
-                <a>Select Part</a>
-                <a id="selected"></a>
-                <a id="confirm" style="display: none"><button onclick="confirmSelect()">Confirm?</button></a>
-            </div>
-
-            <p></p>
-
-            <div>
-                <!-- gen table from Json -->
-                <table id="head">
-                    <tbody id="content"></tbody>
-                </table>
-            </div>
-        </div>
-    </main>
-    <script type="text/javascript" src="partdata.js"></script>
+                <div class="col-lg-6">
 </body>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image that opens the modal
+    var IMG = document.getElementById("myImg");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the image, open the modal 
+    IMG.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+    function signOut() {
+        // Delete the username cookie
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+        // Redirect to the login page
+        window.location.href = "login.php";
+    }
+</script>
 
 </html>
