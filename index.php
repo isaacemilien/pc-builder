@@ -10,6 +10,7 @@
     <title>Desktop Designer</title>
     <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <link rel="stylesheet" href="chatbot-style.css">
 
     <style>
         body {
@@ -326,6 +327,21 @@
                 </ul>
             </footer>
         </div>
+        <div id="chat-panel" class="shadow">
+            <div id="chat-tab">Chat</div>
+            <div class="p-3">
+                <h4 class="text-center">Chat with Our Bot</h4>
+                <div id="chat-container" class="border rounded p-2 bg-light" style="height: 350px; overflow-y: auto;">
+                </div>
+                <div class="input-group mt-3">
+                    <input type="text" id="userInput" class="form-control" placeholder="Type your message here...">
+                    <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="chatbot-script.js"></script>
     </main>
 
     <script>
