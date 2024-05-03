@@ -367,7 +367,7 @@
               <img id="myImg" src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
               
               <!-- The Modal -->
-              <div id="myModal" class="modal">
+              <div id="myModal2" class="modal">
               
                 <!-- The Close Button -->
                 <span class="close">&times;</span>
@@ -866,7 +866,7 @@
     }
 
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal2 = document.getElementById("myModal2");
 
     // Get the image that opens the modal
     var IMG = document.getElementById("myImg");
@@ -876,18 +876,18 @@
 
     // When the user clicks the image, open the modal 
     IMG.onclick = function () {
-      modal.style.display = "block";
+      modal2.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
-      modal.style.display = "none";
+      modal2.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == modal2) {
+        modal2.style.display = "none";
       }
     }
 

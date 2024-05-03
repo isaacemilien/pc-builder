@@ -375,70 +375,70 @@
                             <td>CPU</td>
                             <td><button class="director cpu"><a>Add</a></button></td>
                             <td class="cpu">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 2 -->
                         <tr>
                             <td>CPU cooler</td>
                             <td><button class="director cpu-cooler"><a>Add</a></button></td>
                             <td class="cpu-cooler">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 3 -->
                         <tr>
                             <td>Motherboard</td>
                             <td><button class="director motherboard"><a>Add</a></button></td>
                             <td class="motherboard">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 4 -->
                         <tr>
                             <td>Memory</td>
                             <td><button class="director memory"><a>Add</a></button></td>
                             <td class="memory">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 5 -->
                         <tr>
                             <td>Storage</td>
                             <td><button class="director external-hard-drive"><a>Add</a></button></td>
                             <td class="external-hard-drive">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 6 -->
                         <tr>
                             <td>Video card</td>
                             <td><button class="director video-card"><a>Add</a></button></td>
                             <td class="video-card">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 7 -->
                         <tr>
                             <td>Case</td>
                             <td><button class="director case"><a>Add</a></button></td>
                             <td class="case">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 8 -->
                         <tr>
                             <td>Power supply</td>
                             <td><button class="director power-supply"><a>Add</a></button></td>
                             <td class="power-supply">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 9 -->
                         <tr>
                             <td>Operating system</td>
                             <td><button class="director os"><a>Add</a></button></td>
                             <td class="os">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                         <!-- Row 10 -->
                         <tr>
                             <td>Monitor</td>
                             <td><button class="director monitor"><a>Add</a></button></td>
                             <td class="monitor">No part added yet.</td>
-                            <td><button>X</button></td>
+                            <td><button class="remove-button">X</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -468,6 +468,11 @@
         </div>
     </main>
     <script>
+        window.onbeforeunload = () => {
+            localStorage.removeItem('selectedPart');
+            localStorage.removeItem('selectedOption');
+        };
+
         window.onscroll = function () { myFunction() };
         function myFunction() {
             if (window.scrollY >= sticky) {
@@ -514,10 +519,61 @@
                 }
             })
         })
+
         // smart code to basically send the correct data to the part-select page to load its Jsons etc
         function directTo(direction) {
             localStorage.setItem("selecting", direction);
             location.href = "partPages/part_select.php";
+        }
+
+        // Get all remove buttons
+        const removeButtons = document.querySelectorAll('.remove-button');
+
+        // Add event listener to each remove button
+        removeButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Find the parent row of the button
+                const row = button.parentNode.parentNode;
+
+                // Update the text content of the next td element to "No part added yet."
+                row.children[2].textContent = "No part added yet.";
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the image that opens the modal
+            var IMG = document.getElementById("myImg");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the image, open the modal 
+            IMG.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        function signOut() {
+            // Delete the username cookie
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+            // Redirect to the login page
+            window.location.href = "login.php";
         }
     </script>
 </body>
