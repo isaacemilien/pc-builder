@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
       } else {
         // Password is incorrect
-        echo "Invalid email or password";
+        echo "<script type='text/javascript'>alert('Invalid email or password'); history.back();</script>";
       }
     } else {
       // User does not exist
-      echo "Invalid email or password";
+      echo "<script type='text/javascript'>alert('User does not exist. Please register or try again.'); history.back();</script>";
     }
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
