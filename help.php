@@ -332,42 +332,58 @@
 
         <div class="content">
             <div class="tab">
-                <button class="tablinks" onmouseover="faqs(event, 'Question1')">Question1</button>
-                <button class="tablinks" onmouseover="faqs(event, 'Question2')">Question2</button>
-                <button class="tablinks" onmouseover="faqs(event, 'Question3')">Question3</button>
-                <button class="tablinks" onmouseover="faqs(event, 'Question4')">Question4</button>
-                <button class="tablinks" onmouseover="faqs(event, 'Question5')">Question5</button>
-                <button class="tablinks" onmouseover="faqs(event, 'Question6')">Question6</button>
+                <button class="tablinks" onmouseover="faqs(event, 'Question1')">How do I choose the right components for my pc?</button>
+                <button class="tablinks" onmouseover="faqs(event, 'Question2')">How do I troubleshoot common PC building issues?</button>
+                <button class="tablinks" onmouseover="faqs(event, 'Question3')">How do I maintain my PC after building it?</button>
+                <button class="tablinks" onmouseover="faqs(event, 'Question4')">What are the benefits of a Custom PC?</button>
+                <button class="tablinks" onmouseover="faqs(event, 'Question5')">How hard is it to build a PC?</button>
             </div>
 
             <div id="Question1" class="tabcontent">
-                <h3>Question1</h3>
-                <p>This is the answer to number 1!</p>
+                <h3>How do I choose the right components for my pc?</h3>
+                <p>
+                    Choosing the right components can be a tricky and lengthly process but dont worry as you've come to the right place.
+                    We have a list of the most popular components that you can use to build your pc, however before you get started, you should read the following reccomendations to plan what your pc will be made of.
+                    First of all you should identify a budget. Determine how much you are willing to spend on your pc, keeping in mind that the GPU and CPU are likely to be some of the more expensive items in your pc and also have a bigger impact than other things.
+                    Once you have a budget in mind, you should also consider the type of pc you want to build. There are many different types of pcs that you can build, but the most common ones are gaming, business, and home.
+                </p>
             </div>
 
             <div id="Question2" class="tabcontent">
-                <h3>Question2</h3>
-                <p>This is the answer to number 2!</p>
+                <h3>How do I troubleshoot common PC building issues?</h3>
+                <p>
+                    If you are having trouble with your pc, it is important to know what to look for. Simple things can go wrong such as the pc not turning on so make sure you check all the obvious things such as making sure that the pc is plugged into the wall and make sure that the power supply cables are in a good condition.
+                    However there might be some harder issues to fix such as the pc not booting or the BIOS/EUFI screen not appearing. To fix this, once again check to make sure all the cables are plugged in correctly and also check to make sure your hard drive is set as the primary boot device.
+
+                </p>
             </div>
 
             <div id="Question3" class="tabcontent">
-                <h3>Question3</h3>
-                <p>This is the answer to number 3!</p>
+                <h3>How do I maintain my PC after building it?</h3>
+                <p>
+                    To keep your pc clean, make sure you keep it clean by blowing it with compressed air but make sure that the fans do not move when you blow on them.
+                    Make sure you also keep up with updating your drivers and firmware as not updating them could cause compatibility issues.
+                    If you are having trouble with your pc, it is important to know what to look for. You should also backup your data regularly and perform systems scans to make sure everything on your pc is fine.
+
+                </p>
             </div>
 
             <div id="Question4" class="tabcontent">
-                <h3>Question4</h3>
-                <p>This is the answer to number 4!</p>
+                <h3>Whaat are the benefits of a Custom PC?</h3>
+                <p>
+                    The main benefits of building a custom PC are cost savings and having it just how you like. Building a Custom PC allows you to have all the parts you want and allows you to choose colour schemes and sizes of your build.
+                    It will also help you save money as it is much cheaper to build a PC compared to bying a prebuild one. Upgradability is also a big benefit of building a custom PC as it is much easier to upgrade than a prebuilt one
+
+                </p>
             </div>
 
             <div id="Question5" class="tabcontent">
-                <h3>Question5</h3>
-                <p>This is the answer to number 5!</p>
-            </div>
-
-            <div id="Question6" class="tabcontent">
-                <h3>Question6</h3>
-                <p>This is the answer to number 6!</p>
+                <h3>How hard is it to build a PC?</h3>
+                <p>
+                    Building a PC can be a challenging tast, however it is definatly something most people are able to do with a bit of patience and dedication. 
+                    If you have experience with hardware, you will find it much easier to build a new PC. But if you are new to building PC's it will take some time to learn how different components fit together. 
+                    Also, it is much easier to build a simple cpmputer in comparison to a high-performance one which will take more parts and skill to build.
+                </p>
             </div>
 
             <div class="clearfix"></div>
