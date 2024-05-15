@@ -15,6 +15,59 @@ const Parts = {
     "monitor": "Monitor:"
 }
 
+const Titles = {
+    "price": "Price:",
+    "core_count": "Cores:",
+    "core_clock": "Clock Speed (GHz):",
+    "boost_clock": "Boost Clock (GHz):",
+    "tdp" : "TDP (W):",
+    "graphics" : "Graphics:",
+    "smt": "SMT:",
+
+    "rpm": "RPM:",
+    "noise_level": "Noise Level (dB):",
+    "color": "Colour:",
+    "size": "Size:",
+
+    "socket": "Socket:",
+    "form_factor": "Form Factor:",
+    "max_memory": "Max Memory (GB):",
+    "memory_slots": "Memory Slots:",
+
+    "speed": "Speed (MHz):",
+    "modules": "Modules:",
+    "price_per_gb": "Price Per GB:",
+    "first_word_latency": "First Word Latency:",
+    "cas_latency": "CAS Latency:",
+
+    "capacity": "Capacity (GB):",
+    "type": "Type:",
+    "cache": "Cache:",
+    "interface": "Interface:",
+
+    "chipset": "Chipset:",
+    "memory": "Memory (GB):",
+    "length": "Length (mm):",
+
+    "psu": "Included PCU:",
+    "side_panel": "Side Panel:",
+    "external_volume": "External Volume:",
+    "internal_35_bays": "Internal 3.5 Bays:",
+
+    "efficiency": "Efficiency:",
+    "wattage": "Wattage:",
+    "modular": "Modular:",
+
+    "mode": "Mode:",
+
+    "screen_size": "Screen Size (Inches):",
+    "resolution": "Resolution:",
+    "refresh_rate": "Refresh Rate (Hz):",
+    "response_time": "Response Time (Ms):",
+    "panel_type": "Screen Type:",
+    "aspect_ratio": "Aspect Ratio:",
+}
+
 window.addEventListener("scroll", () => {
     if (window.scrollY >= sticky) {
         navbar.classList.add("sticky")
@@ -55,6 +108,7 @@ window.addEventListener("load", async () => {
 function createRow(data) {
     let row = document.createElement("tr");
     let objKeys = Object.keys(data);
+    console.log(data);
     objKeys.map((key) => {
         let elem = document.createElement("td");
         elem.setAttribute("data", key);
@@ -63,7 +117,7 @@ function createRow(data) {
         // make the selection possible
         row.addEventListener("click", () => {
             document.getElementById("selected").innerText = row.querySelector('td[data="name"]').innerText;
-            document.getElementById("selected").setAttribute("data", row.innerText);
+            document.getElementById("selected").setAttribute("data", JSON.stringify(data));
             document.getElementById("confirm").style.display = "block";
         })
         row.querySelector('td[data="name"]').style.fontWeight = "bold";
@@ -128,30 +182,8 @@ function genTableHeaders(json) {
             case "name":
                 title = Parts[partSelected];
                 break
-            case "price":
-                title = "Price:";
-                break
-            case "core_count":
-                title = "Cores:";
-                break
-            case "core_clock":
-                title = "Clock Speed:";
-                break
-            case "boost_clock":
-                title = "Boost Clock speed:";
-                break
-            case "tdp":
-                title = "Thermal Design Power:";
-                break
-            case "graphics":
-                title = "Graphics:";
-                break
-            case "smt":
-                title = "Simultaneous Multi-threading:";
-                break
             default:
-                title = "Broken Title XXXXXXXX";
-
+                title = Titles[item];
         }
 
         let th = document.createElement("th");

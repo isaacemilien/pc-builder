@@ -121,9 +121,11 @@
         <!-- bruuuh -->
         <div class="table-section">
             <div id="navbar">
-                <a>Test</a>
-                <a>Will this work</a>
+                <a id="import">Import</a>
+                <a id="export">Export</a>
                 <a>Total:</a>
+                <a id="price"></a>
+                <a id="remove-all">Clear</a>
             </div>
 
             <p></p>
@@ -135,6 +137,7 @@
                             <th>Part</th>
                             <th>Add</th>
                             <th>Item</th>
+                            <th>Price</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -144,70 +147,80 @@
                             <td>CPU</td>
                             <td><button class="director cpu"><a>Add</a></button></td>
                             <td class="cpu">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="cpu"></td>
+                            <td><button class="remove cpu">X</button></td>
                         </tr>
                         <!-- Row 2 -->
                         <tr>
                             <td>CPU cooler</td>
                             <td><button class="director cpu-cooler"><a>Add</a></button></td>
                             <td class="cpu-cooler">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="cpu-cooler"></td>
+                            <td><button class="remove cpu-cooler">X</button></td>
                         </tr>
                         <!-- Row 3 -->
                         <tr>
                             <td>Motherboard</td>
                             <td><button class="director motherboard"><a>Add</a></button></td>
                             <td class="motherboard">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="motherboard"></td>
+                            <td><button class="remove motherboard">X</button></td>
                         </tr>
                         <!-- Row 4 -->
                         <tr>
                             <td>Memory</td>
                             <td><button class="director memory"><a>Add</a></button></td>
                             <td class="memory">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="memory"></td>
+                            <td><button class="remove memory">X</button></td>
                         </tr>
                         <!-- Row 5 -->
                         <tr>
                             <td>Storage</td>
                             <td><button class="director external-hard-drive"><a>Add</a></button></td>
                             <td class="external-hard-drive">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="external-hard-drive"></td>
+                            <td><button class="remove external-hard-drive">X</button></td>
                         </tr>
                         <!-- Row 6 -->
                         <tr>
                             <td>Video card</td>
                             <td><button class="director video-card"><a>Add</a></button></td>
                             <td class="video-card">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="video-card"></td>
+                            <td><button class="remove video-card">X</button></td>
                         </tr>
                         <!-- Row 7 -->
                         <tr>
                             <td>Case</td>
                             <td><button class="director case"><a>Add</a></button></td>
                             <td class="case">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="case"></td>
+                            <td><button class="remove case">X</button></td>
                         </tr>
                         <!-- Row 8 -->
                         <tr>
                             <td>Power supply</td>
                             <td><button class="director power-supply"><a>Add</a></button></td>
                             <td class="power-supply">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="power-supply"></td>
+                            <td><button class="remove power-supply">X</button></td>
                         </tr>
                         <!-- Row 9 -->
                         <tr>
                             <td>Operating system</td>
                             <td><button class="director os"><a>Add</a></button></td>
                             <td class="os">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="os"></td>
+                            <td><button class="remove os">X</button></td>
                         </tr>
                         <!-- Row 10 -->
                         <tr>
                             <td>Monitor</td>
                             <td><button class="director monitor"><a>Add</a></button></td>
                             <td class="monitor">No part added yet.</td>
-                            <td><button class="remove-button">X</button></td>
+                            <td class="price" id="monitor"></td>
+                            <td><button class="remove monitor">X</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -237,11 +250,6 @@
         </div>
     </main>
     <script>
-        window.onbeforeunload = () => {
-            localStorage.removeItem('selectedPart');
-            localStorage.removeItem('selectedOption');
-        };
-
         window.onscroll = function () { myFunction() };
         function myFunction() {
             if (window.scrollY >= sticky) {
@@ -254,17 +262,50 @@
             // lazy button event assign Zzz
             for (let i = 0; i < directors.length; i++) {
                 const selected = directors[i];
-                console.log(selected);
+                const remover = removers[i];
                 selected.addEventListener("click", () => {
                     directTo(selected.getAttribute("class").split(" ")[1]);
                 })
+                // part2 Electric removaloo.
+                remover.addEventListener("click", () => {
+                    localStorage.removeItem(remover.getAttribute("class").split(" ")[1]);
+                    // refresh the table aka the page
+                    location.reload();
+                })
             }
         })
+        // export your local storage to somewhere else
+        document.getElementById("export").addEventListener("click", () => {
+            localStorage.removeItem("selecting");
+            navigator.clipboard.writeText(JSON.stringify(localStorage));
+            alert("Copied build to clipboard");
+        })
+
+        // import a build
+        document.getElementById("import").addEventListener("click", async () => {
+            let loaded = navigator.clipboard.readText();
+            try {
+                let result = JSON.parse(await loaded);
+                Object.entries(result).forEach((k) => {
+                    // Ide is shouting at me but it works!
+                    localStorage.setItem(k[0], k[1]);
+                    location.reload();
+                })
+            } catch (error) {
+                alert(error);
+            }
+        })
+
+        // clear the current
+        document.getElementById("remove-all").addEventListener("click", () => {
+            localStorage.clear();
+            location.reload();
+        })
+
         const navbar = document.getElementById("navbar");
         const sticky = navbar.offsetTop;
-
+        const removers = document.getElementsByClassName("remove");
         const directors = document.getElementsByClassName("director");
-
 
         // load stored data from other pages
         window.addEventListener("load", () => {
@@ -281,33 +322,25 @@
                     case "power-supply":
                     case "os":
                     case "monitor":
-                        document.querySelector("td." + key).innerText = localStorage.getItem(key).split(",");
+                        const retrievedSlice = JSON.parse(localStorage.getItem(key))
+                        document.querySelector("td." + key).innerText = retrievedSlice.name;
+                        document.querySelector("td.price#" + key).innerText = retrievedSlice.price;
                         break
                     default:
                         console.log("caught a stray!" + key);
                 }
             })
+            // sum prices
+            let total = 0;
+            document.querySelectorAll("td.price").forEach(v => total += Number(v.innerText));
+            document.querySelector("a#price").innerText = "£" + total;
         })
-
         // smart code to basically send the correct data to the part-select page to load its Jsons etc
         function directTo(direction) {
             localStorage.setItem("selecting", direction);
             location.href = "partPages/part_select.php";
         }
 
-        // Get all remove buttons
-        const removeButtons = document.querySelectorAll('.remove-button');
-
-        // Add event listener to each remove button
-        removeButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                // Find the parent row of the button
-                const row = button.parentNode.parentNode;
-
-                // Update the text content of the next td element to "No part added yet."
-                row.children[2].textContent = "No part added yet.";
-            });
-        });
 
         document.addEventListener('DOMContentLoaded', function () {
             // Get the modal

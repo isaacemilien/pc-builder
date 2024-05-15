@@ -11,252 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Desktop Designer</title>
     <link rel="icon" type="image/x-icon" href="../images/pcIcon.jpg">
-    <style>
-        @media only screen and (min-width: 768px) {
-
-            /* For mobile phones: */
-            .table-section {
-                padding: 10px 80px;
-
-            }
-        }
-
-        .icon {
-            width: 75px;
-            height: auto;
-            margin-right: 10px;
-            /* Adjust spacing between icon and text */
-        }
-
-        .nav-item {
-            display: flex;
-            /* Make items inside the list item flex items */
-            align-items: center;
-            /* Align items vertically */
-        }
-
-        #content {
-            overflow-x: auto;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            /* You can adjust the width as needed */
-        }
-
-        /* Button on table header, see JS */
-        .table-head {
-            padding: 0;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            border: 0px solid #dddddd;
-            color: #000000;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Style the button */
-        button {
-            background-color: #f2f2f2;
-            /* Button background color */
-            color: #000000;
-            /* Button text color */
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            /* Transition for smooth color change */
-        }
-
-        /* Override hover effects */
-        button:hover {
-            background-color: #f2f2f2;
-            /* Keep the background color the same as default */
-            color: black;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        /* Adjust column widths */
-        /*th:nth-child(1),*/
-        /*td:nth-child(1) {*/
-        /*    max-width: 30%;*/
-        /*}*/
-
-        /*th:nth-child(2),*/
-        /*td:nth-child(2) {*/
-        /*    width: 4em;*/
-        /*}*/
-
-        /*th:nth-child(3),*/
-        /*td:nth-child(3) {*/
-        /*    width: 4em;*/
-        /*}*/
-
-        /*th:nth-child(4),*/
-        /*td:nth-child(4) {*/
-        /*    width: 4em;*/
-        /*}*/
-
-        /*th:nth-child(5),*/
-        /*td:nth-child(5) {*/
-        /*    width: 4em;*/
-        /*}*/
-
-        #navbar {
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        #navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
-
-        .sticky+.content {
-            padding-top: 60px;
-        }
-
-        .username {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            font-size: 1.1em;
-            margin-right: 10px;
-        }
-
-        .username a {
-            font-size: 1rem;
-        }
-
-        #myImg {
-            width: 60px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        #myImg:hover {
-            opacity: 0.7;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.9);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 40%;
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            text-align: center;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .user-info img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto;
-        }
-
-        span.nameuser {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        a.logout-button {
-            display: block;
-            background-color: #f44336;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 1rem auto;
-            opacity: 1;
-            transition: 0.3s;
-        }
-
-        a.logout-button:hover {
-            opacity: 0.6
-        }
-    </style>
+    <link rel="stylesheet" href="part-select.css">
 </head>
-
-
 
 <body>
     <main>
@@ -352,9 +108,25 @@
             </div>
         </nav>
 
-        <section>
-            <div class="row py-lg-5">
-                <div class="col-lg-6">
+        <!-- json time -->
+        <div class="table-section">
+            <div id="navbar">
+                <a>Select Part</a>
+                <a id="selected"></a>
+                <a id="confirm" style="display: none"><button onclick="confirmSelect()">Confirm?</button></a>
+            </div>
+
+            <p></p>
+
+            <div>
+                <!-- gen table from Json -->
+                <table id="head">
+                    <tbody id="content"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="partdata.js"></script>
 </body>
 
 <script>
