@@ -1,0 +1,255 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#navBar {
+    margin-bottom: 20px;
+}
+
+.section-background {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 75px;
+    height: auto;
+    margin-right: 10px;
+    /* Adjust spacing between icon and text */;
+}
+
+.nav-item {
+    /* Make items inside the list item flex items */
+      align-items: center;
+    /* Align items vertically */;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    padding-left: 30px;
+    padding-bottom: 50px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+    .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: #ccc;
+    /* Light gray */
+      color: black;
+    transform: rotateY(180deg);
+}
+
+/* Modal styles */
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 100px;
+}
+
+/* Modal Content (Image) */
+    .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+    #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: black;
+    padding: 10px 0;
+}
+
+#caption h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#caption h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#caption p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Add Animation - Zoom in the Modal */
+    .modal-content,
+    #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+}
+
+to {
+    transform: scale(1);
+}
+
+}
+
+    /* The Close Button */
+    .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+    .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Button for Opening Modal */
+    .open-modal-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.open-modal-btn:focus {
+    outline: none;
+}
+
+/* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+}
+
+}
+
+    .username {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+.username a {
+    font-size: 1rem;
+}
+
+#myImg {
+    width: 60px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {
+    opacity: 0.7;
+}
+
+/* The Modal (background) */
+    .modal {
+    display: none;
+    /* Hidden by default */
+      position: fixed;
+    /* Stay in place */
+      z-index: 1;
+    /* Sit on top */
+      padding-top: 100px;
+    /* Location of the box */
+      left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+      height: 100%;
+    /* Full height */
+      overflow: auto;
+    /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+    /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */;
+}
+
+/* Modal Content */
+    .modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+}
+
+.modal-content h2 {
+    text-align: center;
+}
+
+/* The Close Button */
+    .close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
