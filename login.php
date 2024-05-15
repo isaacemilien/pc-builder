@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Desktop Designer</title>
   <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg">
   <link rel="stylesheet" href="css/login.css">
-
+  <link rel="stylesheet" href="css/common-styles.css">
 </head>
 
 <body>

@@ -11,10 +11,8 @@
     <title>Desktop Designer</title>
     <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg">
     <link rel="stylesheet" href="css/buid.css">
-
+    <link rel="stylesheet" href="css/common-styles.css">
 </head>
-
-
 
 <body>
     <main>
