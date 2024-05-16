@@ -18,82 +18,107 @@
     <main>
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
+                <!-- Unneeded ul -->
                 <ul class="nav me-auto">
                     <li class="nav-item">
                         <a href="index.php"><img src="images/pcIcon.jpg" alt="PC Icon" class="icon"></a>
                         <a href="index.php" class="fs-4 nav-link link-body-emphasis px-2 active"
-                            aria-current="page">Desktop Designer</a>
+                            aria-current="page">Desktop
+                            Designer</a>
                     </li>
                 </ul>
-                <div class="username">
-                    <?php function getProfilePic($username)
-                    {
-                        // Your database connection code goes here
-                        $servername = "localhost:3306"; // Change this to your database server hostname
-                        $username_db = "hc920_1"; // Change this to your database username
-                        $password = "PC_PARTS_BRIGHTON"; // Change this to your database password
-                        $dbname = "hc920_pc_parts"; // Change this to your database name
-                    
-                        // Create connection
-                        $conn = new mysqli($servername, $username_db, $password, $dbname);
+                <ul class="nav align-items-center">
+                    <div class="username">
+                        <?php function getProfilePic($username)
+                        {
+                            // Your database connection code goes here
+                            $servername = "localhost:3306"; // Change this to your database server hostname
+                            $username_db = "hc920_1"; // Change this to your database username
+                            $password = "PC_PARTS_BRIGHTON"; // Change this to your database password
+                            $dbname = "hc920_pc_parts"; // Change this to your database name
+                        
+                            // Create connection
+                            $conn = new mysqli($servername, $username_db, $password, $dbname);
 
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            // Query the database for the user's profile picture
+                            $query = "SELECT profilePic FROM tblUsers WHERE Username = '$username'";
+                            $result = $conn->query($query);
+
+                            // Return the profile picture if it exists, otherwise return null
+                            if ($result && $result->num_rows > 0) {
+                                $row = $result->fetch_assoc();
+                                $profilePic = $row['profilePic'];
+                            } else {
+                                $profilePic = null;
+                            }
+                            // Close the database connection
+                            $conn->close();
+                            return $profilePic;
                         }
-                        // Query the database for the user's profile picture
-                        $query = "SELECT profilePic FROM tblUsers WHERE Username = '$username'";
-                        $result = $conn->query($query);
+                        if (isset($_COOKIE['username'])) {
+                            // Display username
+                            echo '<span class="username">' . $_COOKIE['username'] . '</span>';
 
-                        // Return the profile picture if it exists, otherwise return null
-                        if ($result && $result->num_rows > 0) {
-                            $row = $result->fetch_assoc();
-                            $profilePic = $row['profilePic'];
-                        } else {
-                            $profilePic = null;
-                        }
-                        // Close the database connection
-                        $conn->close();
-                        return $profilePic;
-                    }
-                    if (isset($_COOKIE['username'])) {
-                        // Display username
-                        echo '<span class="username">' . $_COOKIE['username'] . '</span>';
+                            // Get the user's profile picture
+                            $profilePic = getProfilePic($_COOKIE['username']);
 
-                        // Get the user's profile picture
-                        $profilePic = getProfilePic($_COOKIE['username']);
-
-                        // Display profile icon
-                        echo '
-                            <!-- Trigger the Modal -->
-                            <img id="myImg" src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
-                            
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
-                            
-                              <!-- The Close Button -->
-                              <span class="close">&times;</span>
-                            
-                              <!-- Modal content -->
-                              <div class="modal-content">
-                                <h2>User Profile</h2>
-                                <div class="user-info">
-                                <img src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
-                                <div>
-                                  <span class="nameuser">' . $_COOKIE['username'] . '</span>
-                                  <a href="#" class="logout-button" onclick="signOut()">Sign Out</a>
-                                </div>
-                              </div>
-                              </div>
-                            </div>
-                            ';
-                    } else {
-                        // Display login and signup buttons
-                        echo '<a href="login.php" class="nav-link link-body-emphasis px-2"><i class="fa fa-fw fa-user"></i>Login</a>';
-                        echo '<a href="signup.php" class="nav-link link-body-emphasis px-2">Sign up</a>';
-                    }
-                    ?>
+                            // Display profile icon
+                            echo '
+              <!-- Trigger the Modal -->
+              <img id="myImg" src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
+              
+              <!-- The Modal -->
+              <div id="myModal2" class="modal">
+              
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+              
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <h2>User Profile</h2>
+                  <div class="user-info">
+                  <img src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
+                  <div>
+                    <span class="nameuser">' . $_COOKIE['username'] . '</span>
+                    <a href="#" class="logout-button" onclick="signOut()">Sign Out</a>
+                  </div>
                 </div>
+                </div>
+              </div>
+              ';
+                        } else {
+                            // Display login and signup buttons
+                            echo '<a href="login.php" class="nav-link link-body-emphasis px-2"><i class="fa fa-fw fa-user"></i>Login</a>';
+                            echo '<a href="signup.php" class="nav-link link-body-emphasis px-2">Sign up</a>';
+                        }
+                        ?>
+                        <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Name: <span id="modal-name"></span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-mdb-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
         </nav>
         <nav class="py-2 bg-body-tertiary border-bottom">
             <div class="container d-flex flex-wrap">
