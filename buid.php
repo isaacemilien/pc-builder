@@ -28,46 +28,45 @@
                     </li>
                 </ul>
                 <ul class="nav align-items-center">
-                    <div class="username">
-                        <?php function getProfilePic($username)
-                        {
-                            // Your database connection code goes here
-                            $servername = "localhost:3306"; // Change this to your database server hostname
-                            $username_db = "hc920_1"; // Change this to your database username
-                            $password = "PC_PARTS_BRIGHTON"; // Change this to your database password
-                            $dbname = "hc920_pc_parts"; // Change this to your database name
-                        
-                            // Create connection
-                            $conn = new mysqli($servername, $username_db, $password, $dbname);
+                    <div class="username"> <?php function getProfilePic($username)
+            {
+              // Your database connection code goes here
+              $servername = "localhost:3306"; // Change this to your database server hostname
+              $username_db = "hc920_1"; // Change this to your database username
+              $password = "PC_PARTS_BRIGHTON"; // Change this to your database password
+              $dbname = "hc920_pc_parts"; // Change this to your database name
+            
+              // Create connection
+              $conn = new mysqli($servername, $username_db, $password, $dbname);
 
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-                            // Query the database for the user's profile picture
-                            $query = "SELECT profilePic FROM tblUsers WHERE Username = '$username'";
-                            $result = $conn->query($query);
+              // Check connection
+              if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+              }
+              // Query the database for the user's profile picture
+              $query = "SELECT profilePic FROM tblUsers WHERE Username = '$username'";
+              $result = $conn->query($query);
 
-                            // Return the profile picture if it exists, otherwise return null
-                            if ($result && $result->num_rows > 0) {
-                                $row = $result->fetch_assoc();
-                                $profilePic = $row['profilePic'];
-                            } else {
-                                $profilePic = null;
-                            }
-                            // Close the database connection
-                            $conn->close();
-                            return $profilePic;
-                        }
-                        if (isset($_COOKIE['username'])) {
-                            // Display username
-                            echo '<span class="username">' . $_COOKIE['username'] . '</span>';
+              // Return the profile picture if it exists, otherwise return null
+              if ($result && $result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $profilePic = $row['profilePic'];
+              } else {
+                $profilePic = null;
+              }
+              // Close the database connection
+              $conn->close();
+              return $profilePic;
+            }
+            if (isset($_COOKIE['username'])) {
+              // Display username
+              echo '<span class="username">' . $_COOKIE['username'] . '</span>';
 
-                            // Get the user's profile picture
-                            $profilePic = getProfilePic($_COOKIE['username']);
+              // Get the user's profile picture
+              $profilePic = getProfilePic($_COOKIE['username']);
 
-                            // Display profile icon
-                            echo '
+              // Display profile icon
+              echo '
               <!-- Trigger the Modal -->
               <img id="myImg" src="images/userIcon/icon' . $profilePic . '.jpg" alt="Profile Picture">
               
@@ -90,12 +89,12 @@
                 </div>
               </div>
               ';
-                        } else {
-                            // Display login and signup buttons
-                            echo '<a href="login.php" class="nav-link link-body-emphasis px-2"><i class="fa fa-fw fa-user"></i>Login</a>';
-                            echo '<a href="signup.php" class="nav-link link-body-emphasis px-2">Sign up</a>';
-                        }
-                        ?>
+            } else {
+              // Display login and signup buttons
+              echo '<a href="login.php" class="nav-link link-body-emphasis px-2"><i class="fa fa-fw fa-user"></i>Login</a>';
+              echo '<a href="signup.php" class="nav-link link-body-emphasis px-2">Sign up</a>';
+            }
+            ?>
                         <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">

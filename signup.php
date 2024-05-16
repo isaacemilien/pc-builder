@@ -11,7 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Validate the user's password
   if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $userPassword)) {
-    echo "Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.";
+    echo "<script>alert('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character.'); history.back();</script>";
+    exit;
+  }
+
+  //validate the user's full name
+  if (!preg_match("/^[a-zA-Z-' ]*$/", $fullName)) {
+    echo "<script type='text/javascript'>alert('Full name can only contain letters, hyphens, apostrophes, and spaces.'); history.back();</script>";
+    exit;
+  }
+
+  //validate the user's email
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "<script type='text/javascript'>alert('Invalid email address.'); history.back();</script>";
     exit;
   }
 
@@ -44,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Email already exists.";
     exit;
   }
+
   // Prepare SQL statement with prepared statement
   $sql = "INSERT INTO tblUsers (Username, Email, Password, profilePic) VALUES (?,?,?,?)";
   $stmt = $conn->prepare($sql);
@@ -90,7 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="icon" type="image/x-icon" href="images/pcIcon.jpg">
   <link rel="stylesheet" href="css/signup.css">
   <link rel="stylesheet" href="css/common-styles.css">
-
 </head>
 
 <body>
@@ -191,6 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
       </div>
     </div>
+
 
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
