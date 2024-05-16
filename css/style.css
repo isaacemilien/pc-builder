@@ -6,13 +6,15 @@ body {
     width: 75px;
     height: auto;
     margin-right: 10px;
-    /* Adjust spacing between icon and text */;
+    /* Adjust spacing between icon and text */
+    ;
 }
 
 .nav-item {
     /* Make items inside the list item flex items */
-            align-items: center;
-    /* Align items vertically */;
+    align-items: center;
+    /* Align items vertically */
+    ;
 }
 
 header {
@@ -48,31 +50,32 @@ header {
 }
 
 /* The Modal (background) */
-        .modal {
+.modal {
     display: none;
     /* Hidden by default */
-            position: fixed;
+    position: fixed;
     /* Stay in place */
-            z-index: 1;
+    z-index: 1;
     /* Sit on top */
-            padding-top: 100px;
+    padding-top: 100px;
     /* Location of the box */
-            left: 0;
+    left: 0;
     top: 0;
     width: 100%;
     /* Full width */
-            height: 100%;
+    height: 100%;
     /* Full height */
-            overflow: auto;
+    overflow: auto;
     /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
     /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+    ;
 }
 
 /* Modal Content */
-        .modal-content {
+.modal-content {
     background-color: #fefefe;
     margin: 0 auto;
     padding: 20px;
@@ -86,7 +89,7 @@ header {
 }
 
 /* The Close Button */
-        .close {
+.close {
     color: #aaaaaa;
     position: absolute;
     top: 10px;
@@ -96,11 +99,8 @@ header {
 }
 
 .close:hover,
-        .close:focus {
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
-
-
-

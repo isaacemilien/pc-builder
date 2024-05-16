@@ -1,119 +1,9 @@
-@media only screen and (min-width: 768px) {
-
-    /* For mobile phones: */
-    .table-section {
-        padding: 10px 80px;
-
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
     }
-}
 
-.icon {
-    width: 75px;
-    height: auto;
-    margin-right: 10px;
-    /* Adjust spacing between icon and text */
-}
-
-.nav-item {
-    display: flex;
-    /* Make items inside the list item flex items */
-    align-items: center;
-    /* Align items vertically */
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    /* You can adjust the width as needed */
-}
-
-th,
-td {
-    padding: 8px;
-    border: 0px solid #dddddd;
-    color: #000000;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Style the button */
-button {
-    background-color: #f2f2f2;
-    /* Button background color */
-    color: #000000;
-    /* Button text color */
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    /* Transition for smooth color change */
-}
-
-/* Override hover effects */
-button:hover {
-    background-color: #f2f2f2;
-    /* Keep the background color the same as default */
-    color: black;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-/* Adjust column widths */
-th:nth-child(1),
-td:nth-child(1) {
-    width: 10%;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-    width: 10%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-    width: 60%;
-}
-
-th:nth-child(4),
-td:nth-child(4) {
-    width: 15%;
-}
-
-th:nth-child(5),
-td:nth-child(5) {
-    width: 5%;
-    text-align: center;
-}
-
-
-#navbar {
-    overflow: hidden;
-    background-color: #333;
-}
-
-#navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.sticky+.content {
-    padding-top: 60px;
 }
 
 .username {
@@ -188,9 +78,119 @@ td:nth-child(5) {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
+.icon {
+    width: 75px;
+    height: auto;
+    margin-right: 10px;
+    /* Adjust spacing between icon and text */
+}
+
+.nav-item {
+    display: flex;
+    /* Make items inside the list item flex items */
+    align-items: center;
+    /* Align items vertically */
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    /* Reduce the width to create a gap on either side */
+    margin: 0 auto;
+    /* Add horizontal margin to center the table */
+    padding: 20px;
+    /* Add padding to create a gap between the table and its container */
+}
+
+
+th,
+td {
+    padding: 8px;
+    border: 0px solid #dddddd;
+    color: #000000;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style the button */
+button {
+    background-color: #f2f2f2;
+    /* Button background color */
+    color: #000000;
+    /* Button text color */
+    border: none;
+    padding: 8px 16px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    /* Transition for smooth color change */
+}
+
+/* Override hover effects */
+button:hover {
+    background-color: #f2f2f2;
+    /* Keep the background color the same as default */
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Adjust column widths */
+th:nth-child(1),
+td:nth-child(1) {
+    width: 10%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 10%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 60%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 15%;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+    width: 5%;
+    text-align: center;
+}
+
+
+#navbar {
+    overflow: hidden;
+    background-color: #333;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.content {
+    padding-top: 60px;
 }
